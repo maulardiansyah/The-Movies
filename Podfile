@@ -8,5 +8,7 @@ target 'The Movies' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'FittedSheets', '2.0.0'
   pod 'YouTubePlayer'
-
+  pod 'ImageSlideshow', '~> 1.9.0'
+  pod 'ImageSlideshow/Kingfisher'
+  pod 'BmoViewPager', '~> 5.1.0'
 end
