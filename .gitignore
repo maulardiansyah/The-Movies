@@ -1,0 +1,15 @@
+## User settings
+xcuserdata/
+
+DerivedData/
+build/
+.build/
+
+# DS_Store
+.DS_Store
+
+# Pods
+Pods
+Podfile.lock
+
+The Movies.xcworkspace
