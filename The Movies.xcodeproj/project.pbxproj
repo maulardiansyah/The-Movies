@@ -128,8 +128,6 @@
 				02D2A9EE268980310026FD2F /* Base */,
 				02D2A9F32689840C0026FD2F /* Main */,
 				02D2A9F82689AD1C0026FD2F /* Home */,
-				02D2A9FA2689AD5E0026FD2F /* ListMovie */,
-				02D2A9FB2689AD830026FD2F /* MovieDetail */,
 				02D2A9F92689AD4A0026FD2F /* Search */,
 			);
 			path = ViewController;
@@ -244,20 +242,6 @@
 				02D2A9FE2689ADC10026FD2F /* SearchMovieVC.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		02D2A9FA2689AD5E0026FD2F /* ListMovie */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ListMovie;
-			sourceTree = "<group>";
-		};
-		02D2A9FB2689AD830026FD2F /* MovieDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		243FFEB4E948D3FF17033AA2 /* Frameworks */ = {
