@@ -10,4 +10,5 @@ target 'The Movies' do
   pod 'YouTubePlayer'
   pod 'ImageSlideshow', '~> 1.9.0'
   pod 'ImageSlideshow/Kingfisher'
+  pod 'Toast-Swift', '~> 5.0.1'
 end

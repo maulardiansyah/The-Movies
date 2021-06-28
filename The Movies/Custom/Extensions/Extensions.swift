@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 extension UIView
 {
@@ -61,5 +62,11 @@ extension UIView
         }
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+    
+    func showToast(_ message: String, duration: TimeInterval = 2.0, position: ToastPosition = .bottom, bgColor: UIColor = UIColor.black.withAlphaComponent(0.8)) {
+        var style = ToastStyle()
+        style.backgroundColor = bgColor
+        self.makeToast(message, duration: duration, position: position, style: style)
     }
 }

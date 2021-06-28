@@ -9,6 +9,7 @@ import UIKit.UIColor
 
 extension UIColor
 {
+    class public var bgWhite: UIColor { UIColor.UIColorRGB(rgbValue: 0xFBFBFB) }
     class public var green: UIColor { UIColor.UIColorRGB(rgbValue: 0x279B24) }
     class public var darkBlue: UIColor { UIColor.UIColorRGB(rgbValue: 0x1b2769) }
     class public var gray: UIColor { UIColor.UIColorRGB(rgbValue: 0x666666) }
