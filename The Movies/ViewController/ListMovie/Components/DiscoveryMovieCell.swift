@@ -64,7 +64,7 @@ class DiscoveryMovieCell: BaseTableViewCell
             let released = movie?.releaseDate ?? ""
             lblDateReleased.text = released == "" ? "Coming Soon" : released.convertDates()
             lblRating.setTitle("\(movie?.voteAverage.rounded(toPlaces: 1) ?? 0.0)")
-            imgCover.setImage(movie?.posterPath ?? "")
+            imgCover.setImage(movie?.posterPath ?? "", placeholder: .imgGenre)
         }
     }
     

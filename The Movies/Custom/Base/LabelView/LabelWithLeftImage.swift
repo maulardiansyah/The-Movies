@@ -41,6 +41,15 @@ class LabelWithLeftImage: BaseView
         }
     }
     
+    var labelCenterVertical: Bool = false {
+        didSet {
+            if(labelCenterVertical) {
+                title.centerYAnchor(centerY: centerYAnchor)
+                setNeedsUpdateConstraints()
+            }
+        }
+    }
+    
     var rightSpace: Int = 6
     
     override func setupViews() {
@@ -48,7 +57,7 @@ class LabelWithLeftImage: BaseView
         addSubview(title)
         
         addConstraintsWithFormat(format: "V:|[v0]-(>=0)-|", views: leftImage)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: title)
+        addConstraintsWithFormat(format: "V:|->=0-[v0]->=0-|", views: title)
         addConstraintsWithFormat(format: "H:|[v0]-(\(rightSpace))-[v1]|", views: leftImage, title)
         leftImage.widthAnchor.constraint(equalTo: leftImage.heightAnchor, multiplier: 1).isActive = true
     }

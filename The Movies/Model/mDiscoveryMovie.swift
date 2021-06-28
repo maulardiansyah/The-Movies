@@ -19,11 +19,11 @@ struct mDiscoveryMoviesData: Codable {
 
 struct mDiscoveryMovie: Codable {
     let posterPath, overview, releaseDate, originalTitle, originalLanguage: String?
-    let title, backdropPath: String?
+    let title, backdropPath, status: String?
     let id, voteCount: Int?
-    let popularity, voteAverage: Double
+    let voteAverage: Double
     let adult, video: Bool?
-    let budget, revenue, runtime, status: Int?
+    let budget, revenue, runtime: Int?
     let genres: [mGenre]?
     
     private enum CodingKeys : String, CodingKey {
@@ -34,7 +34,7 @@ struct mDiscoveryMovie: Codable {
         case backdropPath = "backdrop_path"
         case voteCount = "vote_count"
         case voteAverage = "vote_average"
-        case adult, video, title, id, popularity, overview
+        case adult, video, title, id, overview
         case budget, revenue, runtime, status, genres
     }
 }

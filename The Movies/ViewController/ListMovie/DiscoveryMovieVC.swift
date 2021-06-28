@@ -98,6 +98,16 @@ extension DiscoveryMovieVC: UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectMovie(discoveryMovie[indexPath.row])
+    }
+    
+    func selectMovie(_ movie: mDiscoveryMovie) {
+        let vc = DetailMovieVC()
+        vc.movieId = movie.id ?? 0
+        toNext(vc: vc)
+    }
+    
     /// Load more ketika sampai di konten paling akhir
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = scrollView.frame.size.height

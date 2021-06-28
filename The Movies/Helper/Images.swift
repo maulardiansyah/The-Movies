@@ -17,6 +17,8 @@ extension UIImage
     class var btBack: UIImage? { return UIImage(named: "btBack") }
     class var imgGenre: UIImage? { return UIImage(named: "imgGenre") }
     class var iconStar: UIImage? { return UIImage(named: "iconStar") }
+    class var iconAdult: UIImage? { return UIImage(named: "iconAdult") }
+    class var iconPlay: UIImage? { return UIImage(named: "iconPlay") }
     
     class var emptyData: UIImage? { return UIImage(named: "emptyData") }
 }

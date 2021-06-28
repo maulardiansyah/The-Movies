@@ -86,6 +86,20 @@ extension UIImageView
                 completionHandler: { result in })
         }
     }
+    
+    func setBackdrop(_ path: String, placeholder: UIImage? = nil) {
+        if let url = URL(string: "https://www.themoviedb.org/t/p/w1066_and_h600_bestv2\(path)") {
+            self.contentMode = .scaleAspectFill
+            self.clipsToBounds = true
+            self.kf.indicatorType = .activity
+            self.kf.setImage(
+                with: url,
+                placeholder: placeholder,
+                options: [.transition(.fade(1))],
+                progressBlock: nil,
+                completionHandler: { result in })
+        }
+    }
 }
 
 extension Double
