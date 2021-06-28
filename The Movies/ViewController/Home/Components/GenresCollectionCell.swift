@@ -24,7 +24,7 @@ class GenresCollectionCell: BaseCollectionViewCell
         v.numberOfLines = 0
         v.textAlignment = .center
         v.textColor = .darkBlue
-        v.font = .system(.xsmall)
+        v.font = .system(.xsmall, weight: .semibold)
         v.adjustsFontSizeToFitWidth = true
         return v
     }()

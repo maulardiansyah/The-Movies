@@ -89,7 +89,7 @@ class BaseVC: UIViewController
         navigationItem.title = " "
     }
     
-    func setTitle(_ title: String, subtitle: String = "", titleColor: UIColor = .orange) {
+    func setTitle(_ title: String, subtitle: String = "", titleColor: UIColor = .darkBlue) {
         let navbarH = self.navigationController?.navigationBar.frame.height ?? 0
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: navbarH))
         label.textAlignment = .left

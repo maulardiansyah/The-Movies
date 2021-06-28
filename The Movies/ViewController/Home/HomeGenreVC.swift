@@ -80,7 +80,7 @@ extension HomeGenreVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectGenre(genresMovies[indexPath.item])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -101,6 +101,13 @@ extension HomeGenreVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: genresCell, for: indexPath) as! GenresCollectionCell
         cell.menu = genresMovies[indexPath.item]
         return cell
+    }
+    
+    func selectGenre(_ genre: mGenre) {
+        let vc = DiscoveryMovieVC()
+        vc.titleText = "Movie: \(genre.name ?? "")"
+        vc.genreId = "\(genre.id ?? 0)"
+        toNext(vc: vc)
     }
 }
 
