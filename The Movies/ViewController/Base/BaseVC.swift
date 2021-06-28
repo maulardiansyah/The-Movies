@@ -71,14 +71,16 @@ class BaseVC: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .bgWhite
         
+        setNavigation()
         setupViews()
         setupConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigation(isHidden: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,7 +89,7 @@ class BaseVC: UIViewController
         navigationItem.title = " "
     }
     
-    func setTitle(_ title: String, subtitle: String = "", titleColor: UIColor = .darkBlue) {
+    func setTitle(_ title: String, subtitle: String = "", titleColor: UIColor = .orange) {
         let navbarH = self.navigationController?.navigationBar.frame.height ?? 0
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: navbarH))
         label.textAlignment = .left
@@ -111,6 +113,23 @@ class BaseVC: UIViewController
         
         label.attributedText = attributText
         navigationItem.titleView = label
+    }
+    
+    func setBackButton(isHidden: Bool) {
+        navigationItem.hidesBackButton = isHidden
+    }
+    
+    func setNavigation(barTintColor: UIColor = .white, tintColor: UIColor = .darkBlue) {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = barTintColor
+        navigationController?.navigationBar.tintColor = tintColor
+        
+        /// set default back button is show
+        setBackButton(isHidden: false)
+    }
+    
+    func setNavigation(isHidden: Bool, animated: Bool = false) {
+        navigationController?.setNavigationBarHidden(isHidden, animated: animated)
     }
     
     func setNavigationLeftButtons(titles: [String], icons: [UIImage?]) {

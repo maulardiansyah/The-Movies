@@ -15,5 +15,6 @@ extension UIImage
     class var searchSelected: UIImage? { return UIImage(named: "searchSelected") }
     
     class var btBack: UIImage? { return UIImage(named: "btBack") }
+    class var imgGenre: UIImage? { return UIImage(named: "imgGenre") }
 }
 
