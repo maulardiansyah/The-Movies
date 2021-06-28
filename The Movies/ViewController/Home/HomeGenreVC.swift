@@ -111,6 +111,7 @@ extension HomeGenreVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let vc = DiscoveryMovieVC()
         vc.titleText = "Movie: \(genre.name ?? "")"
         vc.genreId = "\(genre.id ?? 0)"
+        vc.genreName = genre.name ?? ""
         toNext(vc: vc)
     }
 }
@@ -145,7 +146,7 @@ extension HomeGenreVC
                 if let data = resData, let genre = try? JSONDecoder().decode(mGenresData.self, from: data) {
                     self.genresMovies = genre.genres ?? []
                 } else {
-                    self.view.showToast(error ?? "")
+                    self.view.showToast("Failed to decode.")
                 }
             }
             

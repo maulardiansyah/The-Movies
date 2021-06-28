@@ -70,3 +70,28 @@ extension UIView
         self.makeToast(message, duration: duration, position: position, style: style)
     }
 }
+
+extension UIImageView
+{
+    func setImage(_ path: String, placeholder: UIImage? = nil) {
+        if let url = URL(string: "https://www.themoviedb.org/t/p/w440_and_h660_face\(path)") {
+            self.contentMode = .scaleAspectFill
+            self.clipsToBounds = true
+            self.kf.indicatorType = .activity
+            self.kf.setImage(
+                with: url,
+                placeholder: placeholder,
+                options: [.transition(.fade(1))],
+                progressBlock: nil,
+                completionHandler: { result in })
+        }
+    }
+}
+
+extension Double
+{
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}

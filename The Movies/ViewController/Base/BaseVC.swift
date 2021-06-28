@@ -49,7 +49,7 @@ class BaseVC: UIViewController
     
     let safeview: UIView = {
         let v = UIView()
-        v.backgroundColor = .bgWhite
+        v.backgroundColor = .bgSoftBlue
         return v
     }()
     
@@ -93,7 +93,8 @@ class BaseVC: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .bgWhite
+        view.backgroundColor = .white
+        safeview.backgroundColor = .bgSoftBlue
         
         setNavigation()
         setupViews()

@@ -17,7 +17,6 @@
 		02D2A9CA268965A50026FD2F /* mUserReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9C9268965A50026FD2F /* mUserReview.swift */; };
 		02D2A9CC2689680A0026FD2F /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9CB2689680A0026FD2F /* Services.swift */; };
 		02D2A9CE268969E30026FD2F /* ServicesPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9CD268969E30026FD2F /* ServicesPath.swift */; };
-		02D2A9D026896C470026FD2F /* ServicesParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9CF26896C470026FD2F /* ServicesParameter.swift */; };
 		02D2A9D82689733E0026FD2F /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9D72689733E0026FD2F /* ProgressView.swift */; };
 		02D2A9DA2689744C0026FD2F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9D92689744C0026FD2F /* Extensions.swift */; };
 		02D2A9DD2689756B0026FD2F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2A9DC2689756B0026FD2F /* Colors.swift */; };
@@ -39,6 +38,9 @@
 		D9111C142689D18C00539A95 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C132689D18C00539A95 /* BaseCollectionViewCell.swift */; };
 		D9111C172689D3BD00539A95 /* GenresCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C162689D3BD00539A95 /* GenresCollectionCell.swift */; };
 		D9111C1B2689E36F00539A95 /* DiscoveryMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C1A2689E36F00539A95 /* DiscoveryMovieVC.swift */; };
+		D9111C1E2689F40200539A95 /* DiscoveryMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C1D2689F40200539A95 /* DiscoveryMovieCell.swift */; };
+		D9111C21268A050000539A95 /* LabelWithLeftImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C20268A050000539A95 /* LabelWithLeftImage.swift */; };
+		D9111C23268A07F500539A95 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9111C22268A07F500539A95 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +56,6 @@
 		02D2A9C9268965A50026FD2F /* mUserReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mUserReview.swift; sourceTree = "<group>"; };
 		02D2A9CB2689680A0026FD2F /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		02D2A9CD268969E30026FD2F /* ServicesPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPath.swift; sourceTree = "<group>"; };
-		02D2A9CF26896C470026FD2F /* ServicesParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesParameter.swift; sourceTree = "<group>"; };
 		02D2A9D72689733E0026FD2F /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		02D2A9D92689744C0026FD2F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		02D2A9DC2689756B0026FD2F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -78,6 +79,9 @@
 		D9111C132689D18C00539A95 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9111C162689D3BD00539A95 /* GenresCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCollectionCell.swift; sourceTree = "<group>"; };
 		D9111C1A2689E36F00539A95 /* DiscoveryMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMovieVC.swift; sourceTree = "<group>"; };
+		D9111C1D2689F40200539A95 /* DiscoveryMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMovieCell.swift; sourceTree = "<group>"; };
+		D9111C20268A050000539A95 /* LabelWithLeftImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithLeftImage.swift; sourceTree = "<group>"; };
+		D9111C22268A07F500539A95 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +168,6 @@
 			children = (
 				02D2A9CB2689680A0026FD2F /* Services.swift */,
 				02D2A9CD268969E30026FD2F /* ServicesPath.swift */,
-				02D2A9CF26896C470026FD2F /* ServicesParameter.swift */,
 				02D2A9EC26897C1E0026FD2F /* ServicesMethod+Header.swift */,
 				02D2A9EA26897B860026FD2F /* Network.swift */,
 			);
@@ -184,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				02D2A9E02689768A0026FD2F /* View */,
+				D9111C1F268A04E500539A95 /* LabelView */,
 				02D2A9E726897A790026FD2F /* TableViewCell */,
 				D9111C122689D16000539A95 /* CollectionViewCell */,
 			);
@@ -197,6 +201,7 @@
 				02D2A9E3268978160026FD2F /* Font.swift */,
 				02D2A9F1268982170026FD2F /* Helper.swift */,
 				02D2AA002689B1550026FD2F /* Images.swift */,
+				D9111C22268A07F500539A95 /* DateExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -297,9 +302,26 @@
 		D9111C192689E35800539A95 /* ListMovie */ = {
 			isa = PBXGroup;
 			children = (
+				D9111C1C2689F3F200539A95 /* Components */,
 				D9111C1A2689E36F00539A95 /* DiscoveryMovieVC.swift */,
 			);
 			path = ListMovie;
+			sourceTree = "<group>";
+		};
+		D9111C1C2689F3F200539A95 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D9111C1D2689F40200539A95 /* DiscoveryMovieCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D9111C1F268A04E500539A95 /* LabelView */ = {
+			isa = PBXGroup;
+			children = (
+				D9111C20268A050000539A95 /* LabelWithLeftImage.swift */,
+			);
+			path = LabelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D2A9E926897A8F0026FD2F /* BaseTableViewCell.swift in Sources */,
+				D9111C23268A07F500539A95 /* DateExtension.swift in Sources */,
 				02D2A9F5268984210026FD2F /* MainController.swift in Sources */,
 				02D2A9F72689842D0026FD2F /* MainTabBarController.swift in Sources */,
 				02D2A9ED26897C1E0026FD2F /* ServicesMethod+Header.swift in Sources */,
@@ -425,7 +448,9 @@
 				D9111C1B2689E36F00539A95 /* DiscoveryMovieVC.swift in Sources */,
 				02D2A9DD2689756B0026FD2F /* Colors.swift in Sources */,
 				02D2A9F02689803D0026FD2F /* BaseVC.swift in Sources */,
+				D9111C21268A050000539A95 /* LabelWithLeftImage.swift in Sources */,
 				02D2A9E4268978160026FD2F /* Font.swift in Sources */,
+				D9111C1E2689F40200539A95 /* DiscoveryMovieCell.swift in Sources */,
 				02D2A9CC2689680A0026FD2F /* Services.swift in Sources */,
 				D9111C172689D3BD00539A95 /* GenresCollectionCell.swift in Sources */,
 				02D2A9F2268982170026FD2F /* Helper.swift in Sources */,
@@ -442,7 +467,6 @@
 				02D2A9C626895CA50026FD2F /* mGenres.swift in Sources */,
 				02D2A9FF2689ADC10026FD2F /* SearchMovieVC.swift in Sources */,
 				02D2AA012689B1550026FD2F /* Images.swift in Sources */,
-				02D2A9D026896C470026FD2F /* ServicesParameter.swift in Sources */,
 				02D2A9D82689733E0026FD2F /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

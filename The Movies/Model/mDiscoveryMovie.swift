@@ -5,7 +5,7 @@
 //  Created by Maul on 28/06/21.
 //
 
-struct mDiscoveryMoviesData {
+struct mDiscoveryMoviesData: Codable {
     let page, totalResults, totalPages: Int?
     let results: [mDiscoveryMovie]?
     
@@ -13,13 +13,15 @@ struct mDiscoveryMoviesData {
         case totalResults = "total_results"
         case totalPages = "total_pages"
         case results
+        case page
     }
 }
 
 struct mDiscoveryMovie: Codable {
     let posterPath, overview, releaseDate, originalTitle, originalLanguage: String?
     let title, backdropPath: String?
-    let id, popularity, voteCount, voteAverage: Int?
+    let id, voteCount: Int?
+    let popularity, voteAverage: Double
     let adult, video: Bool?
     let budget, revenue, runtime, status: Int?
     let genres: [mGenre]?
