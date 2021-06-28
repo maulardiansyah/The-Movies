@@ -37,20 +37,22 @@ class HomeGenreVC: BaseVC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navTitle.text = "Home"
         setImgHeader()
         apiGetGenres()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setNavigation(isHidden: true)
     }
     
     override func setupViews() {
         super.setupViews()
         
-        [imgHeader, collectionGenres].forEach { safeview.addSubview($0) }
+        statusbar.backgroundColor = .white
+        [navview, imgHeader, collectionGenres].forEach { safeview.addSubview($0) }
+        navview.addSubview(navTitle)
         
         collectionGenres.register(GenresCollectionCell.self, forCellWithReuseIdentifier: genresCell)
         collectionGenres.delegate = self
@@ -63,8 +65,10 @@ class HomeGenreVC: BaseVC
     override func setupConstraints() {
         super.setupConstraints()
         
-        [imgHeader, collectionGenres].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
-        view.addConstraintsWithFormat(format: "V:|[v0(180)][v1]|", views: imgHeader, collectionGenres)
+        [navview, imgHeader, collectionGenres].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
+        view.addConstraintsWithFormat(format: "V:|[v0(60)][v1(180)][v2]|", views: navview, imgHeader, collectionGenres)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: navTitle)
+        view.addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: navTitle)
     }
     
     @objc func sliderImagesTaped() {

@@ -25,6 +25,28 @@ class BaseVC: UIViewController
         return v
     }()
     
+    /// Navigation View
+    let navview: UIView = {
+        let v = UIView()
+        v.backgroundColor = .white
+        return v
+    }()
+    
+    let navTitle: UILabel = {
+        let v = UILabel()
+        v.textColor = .darkBlue
+        v.font = UIFont.system(.medium, weight: .semibold)
+        return v
+    }()
+    
+    let navBtLeft: UIButton = {
+        let v = UIButton()
+        v.tintColor = .darkBlue
+        v.imageView?.contentMode = .scaleAspectFit
+        v.setImage(.btBack, for: .normal)
+        return v
+    }()
+    
     let safeview: UIView = {
         let v = UIView()
         v.backgroundColor = .bgWhite
