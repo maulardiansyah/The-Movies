@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '12.0'
 
 target 'The Movies' do
   use_frameworks!
@@ -10,5 +10,4 @@ target 'The Movies' do
   pod 'YouTubePlayer'
   pod 'ImageSlideshow', '~> 1.9.0'
   pod 'ImageSlideshow/Kingfisher'
-  pod 'BmoViewPager', '~> 5.1.0'
 end
