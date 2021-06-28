@@ -86,7 +86,7 @@ extension HomeGenreVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let frame = collectionView.frame
         let colCount = 3 // Jumlah Kolom
-        let margin: CGFloat = 12 * 2
+        let margin: CGFloat = 10 * 2
         let width = (frame.width - CGFloat((colCount - 1) * 12)) - margin
         var estimatedWidth = width / CGFloat(colCount)
         estimatedWidth.round(.down)
