@@ -63,6 +63,15 @@ class DetailMovieVC: BaseVC
         vc.modalPresentationStyle = .overCurrentContext
         toPresent(vc: vc)
     }
+    
+    func toPlayVideo() {
+        let vc = BaseBottomSheetDetailMovieVC()
+        vc.kode = 1
+        vc.pathVideo = movieVideoTrailer?.key ?? ""
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        toPresent(vc: vc)
+    }
 }
 
 //MARK: - Table Data
@@ -87,9 +96,8 @@ extension DetailMovieVC: UITableViewDelegate, UITableViewDataSource
         cell.movieTrailer = movieVideoTrailer
         cell.movieHeaderSection = movieDetails
         
-        cell.actionSeeAllReview = {
-            self.toShowReview()
-        }
+        cell.actionSeeAllReview = { self.toShowReview() }
+        cell.playTrailer = { self.toPlayVideo() }
         
         return cell
     }

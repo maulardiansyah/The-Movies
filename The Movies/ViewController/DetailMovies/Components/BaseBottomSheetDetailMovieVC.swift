@@ -16,6 +16,8 @@ class BaseBottomSheetDetailMovieVC: BaseVC
     var kode = 0
     var movieId = 0
     
+    var pathVideo = ""
+    
     var sheet = SheetViewController(controller: UIViewController())
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +77,11 @@ class BaseBottomSheetDetailMovieVC: BaseVC
     }
     
     func setValueViewVideo() {
+        viewVideo.pathLink = pathVideo
         
+        viewVideo.actionClose = {
+            self.setupDismiss()
+        }
     }
     
     func checkKode() -> BaseVC {
@@ -92,7 +98,7 @@ class BaseBottomSheetDetailMovieVC: BaseVC
         case 0:
             return 0.8
         default:
-            return 0.3
+            return 0.5
         }
     }
 }
