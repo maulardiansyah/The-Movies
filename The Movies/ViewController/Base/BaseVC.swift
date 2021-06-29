@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ImageSlideshow
 
 class BaseVC: UIViewController
 {
@@ -233,29 +232,3 @@ class BaseVC: UIViewController
     
     @objc func buttonPressed(_ sender: UIButton) { }
 }
-
-//MARK:- Show Fullscreen Image
-extension BaseVC
-{
-    public func toFullScreenImage(urlString: [String], index: Int = 0) {
-        var sources = [InputSource]()
-        for i in 0..<urlString.count {
-            if let url = URL(string: urlString[i]) {
-                sources.append(KingfisherSource(url: url))
-            }
-        }
-        
-        /// Cek count of source before show up
-        if sources.count > 0 {
-            let full = FullScreenSlideshowViewController()
-            full.inputs = sources
-            full.initialPage = index
-            full.modalTransitionStyle = .crossDissolve
-            present(full, animated: true, completion: nil)
-        } else {
-            view.showToast("Image can't fullscreen")
-        }
-    }
-}
-
-
