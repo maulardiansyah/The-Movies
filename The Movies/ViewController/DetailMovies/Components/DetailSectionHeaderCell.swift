@@ -78,13 +78,14 @@ class DetailSectionHeaderCell: BaseTableViewCell
     let header = BaseHeaderDetailMovieView()
     let footer = BaseFooterDetailMovieView()
     
+    var movieTrailer: mVideoMovie?
     var movieHeaderSection: mDiscoveryMovie? {
         didSet {
             let backdrop = movieHeaderSection?.backdropPath ?? ""
-            let video = movieHeaderSection?.video ?? false
+            let stateVideo = movieTrailer != nil ? true : false
             header.imgHeader.setBackdrop(backdrop)
-            header.btnPlay.isHidden = video == false ? true : false
-            header.stateBackDrop(backdrop, video)
+            header.btnPlay.isHidden = stateVideo == true ? false : true
+            header.stateBackDrop(backdrop, stateVideo)
             
             let posterPath = movieHeaderSection?.posterPath ?? ""
             if posterPath == "" {

@@ -64,7 +64,7 @@ extension DetailMovieVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return movieDetails != nil ? 1 : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +75,7 @@ extension DetailMovieVC: UITableViewDelegate, UITableViewDataSource
         }
         
         let cell = tableview.dequeueReusableCell(withIdentifier: sectionHeader, for: indexPath) as! DetailSectionHeaderCell
+        cell.movieTrailer = movieVideoTrailer
         cell.movieHeaderSection = movieDetails
         return cell
     }
@@ -113,7 +114,7 @@ extension DetailMovieVC
                 if let data = resData, let list = try? JSONDecoder().decode(mListVideos.self, from: data) {
                     let videoFilter = list.results?.filter { $0.type == "Trailer" }
                     self.movieVideoTrailer = videoFilter?.first
-                    print(videoFilter?.first)
+                    print(videoFilter)
                 } else {
                     self.view.showToast("Failed to decode.")
                 }
