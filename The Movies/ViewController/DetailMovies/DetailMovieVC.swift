@@ -32,7 +32,7 @@ class DetailMovieVC: BaseVC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setTitle("Detail Movie")
+        setTitle("Movie Details")
         apiGetMovieDetails()
     }
     

@@ -109,7 +109,7 @@ extension HomeGenreVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func selectGenre(_ genre: mGenre) {
         let vc = DiscoveryMovieVC()
-        vc.titleText = "Movie: \(genre.name ?? "")"
+        vc.titleText = "Movies: \(genre.name ?? "")"
         vc.genreId = "\(genre.id ?? 0)"
         vc.genreName = genre.name ?? ""
         toNext(vc: vc)
