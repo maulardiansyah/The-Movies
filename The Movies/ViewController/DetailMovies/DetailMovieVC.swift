@@ -112,9 +112,8 @@ extension DetailMovieVC
                 self.view.showToast(e)
             } else {
                 if let data = resData, let list = try? JSONDecoder().decode(mListVideos.self, from: data) {
-                    let videoFilter = list.results?.filter { $0.type == "Trailer" }
+                    let videoFilter = list.results?.filter { $0.site == "YouTube" && $0.type == "Trailer" }
                     self.movieVideoTrailer = videoFilter?.first
-                    print(videoFilter)
                 } else {
                     self.view.showToast("Failed to decode.")
                 }

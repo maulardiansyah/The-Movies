@@ -45,6 +45,6 @@ struct mListVideos: Codable {
 }
 
 struct mVideoMovie: Codable {
-    let id, name, site, type: String?
+    let id, name, site, key, type: String?
     let size: Int?
 }
