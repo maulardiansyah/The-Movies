@@ -66,7 +66,7 @@ class HomeGenreVC: BaseVC
         super.setupConstraints()
         
         [navview, imgHeader, collectionGenres].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
-        view.addConstraintsWithFormat(format: "V:|[v0(60)][v1(180)][v2]|", views: navview, imgHeader, collectionGenres)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)][v1(180)][v2]|", views: navview, imgHeader, collectionGenres)
         view.addConstraintsWithFormat(format: "V:|[v0]|", views: navTitle)
         view.addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: navTitle)
     }

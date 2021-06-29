@@ -277,7 +277,6 @@
 		02D2A9F92689AD4A0026FD2F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D9111C182689E31C00539A95 /* Components */,
 				02D2A9FE2689ADC10026FD2F /* SearchMovieVC.swift */,
 			);
 			path = Search;
@@ -312,13 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				D9111C162689D3BD00539A95 /* GenresCollectionCell.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		D9111C182689E31C00539A95 /* Components */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Components;
 			sourceTree = "<group>";
