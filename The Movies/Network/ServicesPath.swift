@@ -15,7 +15,7 @@ extension Services
             
         case .getMovieDetail(let movieId): return "/movie/\(movieId)"
         case .getVideoMovie(let movieId): return "/movie/\(movieId)/videos"
-        case .getMovieReview(let movieId, let page): return "movie/\(movieId)/reviews?page=\(page)"
+        case .getMovieReview(let movieId, let page): return "/movie/\(movieId)/reviews?page=\(page)"
         }
     }
 }

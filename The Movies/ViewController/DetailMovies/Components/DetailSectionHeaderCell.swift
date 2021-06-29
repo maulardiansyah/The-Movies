@@ -8,7 +8,10 @@
 import UIKit
 
 class DetailSectionHeaderCell: BaseTableViewCell
-{    
+{
+    var actionSeeAllReview: SelectionClosure?
+    var playTrailer: SelectionClosure?
+    
     let imgCover: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
@@ -129,6 +132,17 @@ class DetailSectionHeaderCell: BaseTableViewCell
         containerAdult.addSubview(imgAdult)
         containerAdult.addConstraintsWithFormat(format: "V:|-4-[v0]|", views: imgAdult)
         containerAdult.addConstraintsWithFormat(format: "H:|[v0]->=0-|", views: imgAdult)
+        
+        [header.btnPlay, footer.btnSeeAllReview].forEach { $0.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside) }
+    }
+    
+    @objc func buttonPressed(_ sender: UIButton) {
+        switch sender {
+        case header.btnPlay:
+            playTrailer?()
+        default:
+            actionSeeAllReview?()
+        }
     }
     
     func convertToRuntim(time: Int) -> String {

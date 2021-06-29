@@ -12,7 +12,7 @@ class DiscoveryMovieVC: BaseVC
     let discoveryMovieCell = "discoveryMovieCell"
     let tableview: UITableView = {
         let v = UITableView()
-        v.backgroundColor = .clear
+        v.backgroundColor = .white
         v.separatorColor = .clear
         v.showsVerticalScrollIndicator = false
         return v
@@ -31,7 +31,7 @@ class DiscoveryMovieVC: BaseVC
         return v
     }()
     
-    let svValue: UIStackView = {
+    let svTable: UIStackView = {
         let v = UIStackView()
         v.axis = .vertical
         v.distribution = .fill
@@ -44,7 +44,7 @@ class DiscoveryMovieVC: BaseVC
     var discoveryMovie = [mDiscoveryMovie]()
     var page = 1
     var totalPages = 0
-    var isLoadingMore: Bool = false
+    var isLoadingMore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +56,8 @@ class DiscoveryMovieVC: BaseVC
     override func setupViews() {
         super.setupViews()
         
-        [line, svValue].forEach { safeview.addSubview($0) }
-        [tableview, loadmore].forEach { svValue.addArrangedSubview($0) }
+        [line, svTable].forEach { safeview.addSubview($0) }
+        [tableview, loadmore].forEach { svTable.addArrangedSubview($0) }
         
         tableview.addSubview(refreshControl)
         tableview.register(DiscoveryMovieCell.self, forCellReuseIdentifier: discoveryMovieCell)
@@ -68,8 +68,8 @@ class DiscoveryMovieVC: BaseVC
     override func setupConstraints() {
         super.setupConstraints()
         
-        view.addConstraintsWithFormat(format: "V:|[v0(1)][v1]|", views: line, svValue)
-        [line, svValue].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
+        view.addConstraintsWithFormat(format: "V:|[v0(1)][v1]|", views: line, svTable)
+        [line, svTable].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
     }
     
     override func refreshAction() {

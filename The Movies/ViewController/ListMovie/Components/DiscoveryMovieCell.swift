@@ -71,7 +71,6 @@ class DiscoveryMovieCell: BaseTableViewCell
     override func setupViews() {
         super.setupViews()
         selectionStyle = .none
-        backgroundColor = .white
         
         [imgCover, svHeader, lblRating, line].forEach { contentView.addSubview($0) }
         [lblTitle, lblDateReleased].forEach { svHeader.addArrangedSubview($0) }

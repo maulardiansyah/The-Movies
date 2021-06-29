@@ -54,6 +54,15 @@ class DetailMovieVC: BaseVC
         [line, tableview].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
         view.addConstraintsWithFormat(format: "V:|[v0(1)][v1]|", views: line, tableview)
     }
+    
+    func toShowReview() {
+        let vc = BaseBottomSheetDetailMovieVC()
+        vc.kode = 0
+        vc.movieId = movieDetails?.id ?? 0
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        toPresent(vc: vc)
+    }
 }
 
 //MARK: - Table Data
@@ -77,6 +86,11 @@ extension DetailMovieVC: UITableViewDelegate, UITableViewDataSource
         let cell = tableview.dequeueReusableCell(withIdentifier: sectionHeader, for: indexPath) as! DetailSectionHeaderCell
         cell.movieTrailer = movieVideoTrailer
         cell.movieHeaderSection = movieDetails
+        
+        cell.actionSeeAllReview = {
+            self.toShowReview()
+        }
+        
         return cell
     }
 }

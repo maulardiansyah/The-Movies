@@ -178,38 +178,12 @@ class BaseVC: UIViewController
         present(vc, animated: true, completion: nil)
     }
     
-    func tabbarPush(vc: UIViewController) {
-        tabBarController?.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tabbarPresent(vc: UIViewController, fullscreen: Bool = false) {
-        if(fullscreen) {
-            //Disable the interactive dismissal & set fullscreen in iOS 13
-            if #available(iOS 13.0, *) {
-                vc.modalPresentationStyle = .fullScreen
-            }
-        }
-        
-        tabBarController?.present(vc, animated: true, completion: nil)
-    }
-    
     func toRoot() {
         navigationController?.popToRootViewController(animated: true)
     }
     
     func toPrev() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    func toPrev(vc: AnyClass) {
-        for controller in self.navigationController!.viewControllers as Array {
-            if controller.isKind(of: vc) {
-                self.navigationController!.popToViewController(controller, animated: true)
-                break
-            } else {
-                toPrev()
-            }
-        }
     }
     
     func setupViews() {
@@ -249,63 +223,8 @@ class BaseVC: UIViewController
         return String(describing: classForCoder)
     }
     
-    func registerKeyboardNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func handleKeyboard(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
-            let tabbar = tabBarController?.tabBar.frame.height ?? 0
-            let bottomPadding = Helper.getBottomPadding()
-
-            bottomConstraint?.constant = isKeyboardShowing ? -(keyboardFrame.height - tabbar - bottomPadding) : 0
-            UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-    
-    func hideKeyboard() {
-        view.endEditing(true)
-    }
-    
     func tabbar(isHidden: Bool) {
         tabBarController?.tabBar.isHidden = isHidden
-    }
-    
-    func alertInfo(_ title: String = "", msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            self.alertAction()
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func alertInfoWarn(_ title: String = "", msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func alertInfoWithCancel(_ title: String = "", msg: String, ok: String = "OK") {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: ok, style: .default, handler: { action in
-            self.alertAction()
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func alertAction() { }
-    
-    func getVersion() -> String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            return version
-        }
-        return "no version info"
     }
     
     @objc func refreshAction() {
@@ -313,10 +232,6 @@ class BaseVC: UIViewController
     }
     
     @objc func buttonPressed(_ sender: UIButton) { }
-    
-    func hide(views: [UIView], _ flag: Bool = true) {
-        views.forEach { $0.isHidden = flag }
-    }
 }
 
 //MARK:- Show Fullscreen Image

@@ -124,3 +124,9 @@ extension Int {
         return Formatter.withSeparator.string(for: self) ?? ""
     }
 }
+
+extension String {
+    func datePrefixTimezone() -> String {
+        return "\(self.prefix(10))"
+    }
+}
