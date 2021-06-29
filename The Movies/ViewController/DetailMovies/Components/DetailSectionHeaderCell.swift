@@ -34,6 +34,13 @@ class DetailSectionHeaderCell: BaseTableViewCell
         return lbl
     }()
     
+    let lblRuntime: UILabel = {
+        let lbl = UILabel()
+        lbl.font = .system(.small)
+        lbl.textColor = .gray
+        return lbl
+    }()
+    
     let svTitle: UIStackView = {
         let v = UIStackView()
         v.axis = .vertical
@@ -85,14 +92,14 @@ class DetailSectionHeaderCell: BaseTableViewCell
             } else {
                 imgCover.setImage(posterPath)
             }
-            
+            lblRuntime.text = convertToRuntim(time: movieHeaderSection?.runtime ?? 0)
             lblTitle.text = movieHeaderSection?.title ?? ""
             let released = movieHeaderSection?.releaseDate ?? ""
             lblDateReleased.text = released == "" ? "Coming Soon" : released.convertDates()
             containerAdult.isHidden = movieHeaderSection?.adult == true ? false : true
             
             footer.lblRating.setTitle("\(movieHeaderSection?.voteAverage.rounded(toPlaces: 1) ?? 0.0)")
-            footer.valVoteCount.text = "\(movieHeaderSection?.voteCount ?? 0)"
+            footer.valVoteCount.text = movieHeaderSection?.voteCount?.formattedWithSeparator ?? "0"
         }
     }
     
@@ -117,9 +124,16 @@ class DetailSectionHeaderCell: BaseTableViewCell
         containerValue.addConstraintsWithFormat(format: "H:|[v0]|", views: svTitle)
         containerValue.addConstraintsWithFormat(format: "V:|[v0]->=12-|", views: svTitle)
         
-        [lblTitle, lblDateReleased, containerAdult].forEach { svTitle.addArrangedSubview($0) }
+        [lblTitle, lblRuntime, lblDateReleased, containerAdult].forEach { svTitle.addArrangedSubview($0) }
         containerAdult.addSubview(imgAdult)
         containerAdult.addConstraintsWithFormat(format: "V:|-4-[v0]|", views: imgAdult)
         containerAdult.addConstraintsWithFormat(format: "H:|[v0]->=0-|", views: imgAdult)
+    }
+    
+    func convertToRuntim(time: Int) -> String {
+        let hh = time / 60
+        let mm = time - (hh * 60)
+        let runtimeStr = hh > 0 ? "\(hh)h \(mm)m" : "\(time)m"
+        return "Duration: \(runtimeStr)"
     }
 }

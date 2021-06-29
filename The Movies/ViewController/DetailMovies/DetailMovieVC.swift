@@ -27,6 +27,7 @@ class DetailMovieVC: BaseVC
     
     var movieId = 0
     var movieDetails: mDiscoveryMovie?
+    var movieVideoTrailer: mVideoMovie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,12 +87,33 @@ extension DetailMovieVC
         progressView.show(view: view)
         isLoading = true
         Network.request(.getMovieDetail(movieId)) { resData, error in
+            self.progressView.hide()
             self.isLoading = false
             if let e = error {
                 self.view.showToast(e)
             } else {
                 if let data = resData, let list = try? JSONDecoder().decode(mDiscoveryMovie.self, from: data) {
                     self.movieDetails = list
+                    self.apiGetVideoTrailer()
+                } else {
+                    self.view.showToast("Failed to decode.")
+                }
+            }
+        }
+    }
+    
+    func apiGetVideoTrailer() {
+        progressView.show(view: view)
+        isLoading = true
+        Network.request(.getVideoMovie(movieId)) { resData, error in
+            self.isLoading = false
+            if let e = error {
+                self.view.showToast(e)
+            } else {
+                if let data = resData, let list = try? JSONDecoder().decode(mListVideos.self, from: data) {
+                    let videoFilter = list.results?.filter { $0.type == "Trailer" }
+                    self.movieVideoTrailer = videoFilter?.first
+                    print(videoFilter?.first)
                 } else {
                     self.view.showToast("Failed to decode.")
                 }

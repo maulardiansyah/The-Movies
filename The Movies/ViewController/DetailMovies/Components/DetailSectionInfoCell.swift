@@ -83,9 +83,9 @@ class DetailSectionInfoCell: BaseTableViewCell
         case .genre:
             view.setLabel(title, setGenre(movieInfo))
         case .budget:
-            view.setLabel(title, "\(movieInfo.budget ?? 0)")
+            view.setLabel(title, "$ \(movieInfo.budget?.formattedWithSeparator ?? "0")")
         default:
-            view.setLabel(title, "\(movieInfo.revenue ?? 0)")
+            view.setLabel(title, "$ \(movieInfo.revenue?.formattedWithSeparator ?? "0")")
         }
         
         return view
