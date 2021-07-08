@@ -69,6 +69,7 @@ class DiscoveryMovieVC: BaseVC
         super.setupConstraints()
         
         view.addConstraintsWithFormat(format: "V:|[v0(1)][v1]|", views: line, svTable)
+        view.addConstraintsWithFormat(format: "V:[v0(32)]", views: loadmore)
         [line, svTable].forEach { view.addConstraintsWithFormat(format: "H:|[v0]|", views: $0) }
     }
     

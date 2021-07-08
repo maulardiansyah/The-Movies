@@ -23,7 +23,7 @@ class MainTabbarController: UITabBarController
         
         viewControllers = [
             setTabbarItem(vc: HomeGenreVC(), img: .home, imgSelected: .homeSelected),
-            setTabbarItem(vc: SearchMovieVC(), img: .search, imgSelected: .searchSelected),
+            setTabbarItem(vc: SearchMoviesRouter.createModule(), img: .search, imgSelected: .searchSelected),
         ]
     }
     
@@ -69,7 +69,7 @@ extension MainTabbarController: UITabBarControllerDelegate
     private func selectedAgain() {
         switch iSelected {
         case iSearch:
-            if let clas = viewControllers?[iSelected] as? SearchMovieVC {
+            if let clas = viewControllers?[iSelected] as? SearchMovieView {
                 clas.scrollToTop()
             }
         default:

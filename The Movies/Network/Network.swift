@@ -13,7 +13,9 @@ class Network
     class var base_url: String { return "https://api.themoviedb.org/3" }
     
     class func request(_ service: Services, completion: @escaping (_ data: Data?, _ error: String?) -> ()) {
-        AF.request(base_url + service.path, method: service.method, encoding: URLEncoding.httpBody, headers: service.header)
+        let url =  base_url + service.path
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) //to allow spacing for search
+        AF.request(urlString ?? "", method: service.method, encoding: URLEncoding.queryString, headers: service.header)
             .responseJSON { res in
                 printResponse(service, res)
                 switch res.result {
