@@ -421,7 +421,7 @@
 			children = (
 				D9111C872695E82100539A95 /* View */,
 				D9111C882695E82700539A95 /* Interactor */,
-				D9111C9D2695FA0400539A95 /* Preseter */,
+				D9111C9D2695FA0400539A95 /* Presenter */,
 				D9111C892695E83300539A95 /* Entity */,
 				D9111C8A2695E87300539A95 /* Route */,
 				D9111C8B2695E87E00539A95 /* Protocol */,
@@ -480,12 +480,12 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		D9111C9D2695FA0400539A95 /* Preseter */ = {
+		D9111C9D2695FA0400539A95 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				D9111CA72697295600539A95 /* SearchMoviesPresenter.swift */,
 			);
-			path = Preseter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - View To Intercator
 class SearchMoviesPresenter: SearchMoviesViewToPresenterProtocol
 {
     var view: SearchMoviesPresenterToViewProtocol?
@@ -54,6 +55,7 @@ class SearchMoviesPresenter: SearchMoviesViewToPresenterProtocol
     }
 }
 
+//MARK: - Interacto To Presenter
 extension SearchMoviesPresenter: SearchMoviesInteractorToPresenterProtocol
 {
     func moviesFetched() {
