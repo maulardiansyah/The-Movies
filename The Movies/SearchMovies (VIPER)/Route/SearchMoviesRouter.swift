@@ -23,4 +23,10 @@ class SearchMoviesRouter: SearchMoviesPresenterToRouterProtocol
         
         return view
     }
+    
+    func toDetailMovie(movie: mSearchMovie?) -> UIViewController {
+        let view = DetailMovieVC()
+        view.movieId = movie?.id ?? 0
+        return view
+    }
 }

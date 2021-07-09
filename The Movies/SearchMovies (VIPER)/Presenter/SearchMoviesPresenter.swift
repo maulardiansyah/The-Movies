@@ -53,6 +53,11 @@ class SearchMoviesPresenter: SearchMoviesViewToPresenterProtocol
     func updateView() {
         interactor?.apiGetSearchMovies()
     }
+    
+    func selectList(movie: mSearchMovie?) {
+        let detailView = router?.toDetailMovie(movie: movie)
+        view?.moveToDetail(view: detailView!)
+    }
 }
 
 //MARK: - Interacto To Presenter

@@ -11,6 +11,7 @@ protocol SearchMoviesPresenterToViewProtocol: AnyObject {
     func showLoading(state: Bool, isLoadMore: Bool)
     func showResultMovie()
     func showError(msg: String)
+    func moveToDetail(view: UIViewController)
 }
 
 protocol SearchMoviesInteractorToPresenterProtocol: AnyObject {
@@ -49,8 +50,10 @@ protocol SearchMoviesViewToPresenterProtocol: AnyObject {
     func setPage(page: Int)
     
     func updateView()
+    func selectList(movie: mSearchMovie?)
 }
 
 protocol SearchMoviesPresenterToRouterProtocol: AnyObject {
     static func createModule() -> UIViewController
+    func toDetailMovie(movie: mSearchMovie?) -> UIViewController
 }

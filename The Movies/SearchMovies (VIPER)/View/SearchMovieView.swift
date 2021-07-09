@@ -38,6 +38,11 @@ class SearchMovieView: UIViewController
         navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     //MARK: - CofigureView
     func setupTable() {
         svTable.isHidden = true
@@ -54,7 +59,6 @@ class SearchMovieView: UIViewController
     }
     
     public func scrollToTop() {
-        /// Check course and table data
         if presenter?.getMoviesCount() ?? 0 > 0 {
             tableListMovie.scrollToRow(at: .init(row: 0, section: 0), at: .top, animated: true)
         }
@@ -84,13 +88,7 @@ extension SearchMovieView: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectMovie(presenter?.getMovie(index: indexPath.row))
-    }
-    
-    func selectMovie(_ movie: mSearchMovie?) {
-        let vc = DetailMovieVC()
-        vc.movieId = movie?.id ?? 0
-        navigationController?.pushViewController(vc, animated: true)
+        presenter?.selectList(movie: presenter?.getMovie(index: indexPath.row))
     }
     
     /// Load more ketika sampai di konten paling akhir
@@ -165,5 +163,9 @@ extension SearchMovieView: SearchMoviesPresenterToViewProtocol
             loadMoreView.isHidden = isLoadMore ? false :  true
             progressView.show(view: isLoadMore ? loadMoreView : view)
         }
+    }
+    
+    func moveToDetail(view: UIViewController) {
+        navigationController?.pushViewController(view, animated: true)
     }
 }
